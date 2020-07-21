@@ -1,6 +1,6 @@
 # Conflict-Free Replicated Data Types (CRDTs) in Swift
 
-_Author:_ Drew McCormack ([@drewmccormack](https://twitter.com/drewmccormack))
+_Author:_ Drew McCormack ([@drewmccormack](https://twitter.com/drewmccormack))<br>
 _Site:_ [appdecentral.com](https://appdecentral.com)
 
 This repo contains the Swift code introduced in the tutorial series on CRDTs at appdecentral.com.
