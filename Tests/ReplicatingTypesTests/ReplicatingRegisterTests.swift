@@ -49,7 +49,7 @@ final class ReplicatingArrayTests: XCTestCase {
         XCTAssertEqual(c.value, e.value)
     }
     
-    func testCommutivity() {
+    func testCommutativity() {
         let c = a.merged(with: b)
         let d = b.merged(with: a)
         XCTAssertEqual(d.value, c.value)
