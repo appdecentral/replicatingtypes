@@ -22,7 +22,7 @@ public struct ReplicatingRegister<T> {
             self.id = id
         }
         
-        func ordered(after other: Entry) -> Bool {
+        func isOrdered(after other: Entry) -> Bool {
             (timestamp, id.uuidString) > (other.timestamp, other.id.uuidString)
         }
     }
@@ -47,7 +47,7 @@ public struct ReplicatingRegister<T> {
 extension ReplicatingRegister: Replicable {
     
     public func merged(with other: ReplicatingRegister) -> ReplicatingRegister {
-        entry.ordered(after: other.entry) ? self : other
+        entry.isOrdered(after: other.entry) ? self : other
     }
     
 }
