@@ -8,7 +8,7 @@
 import XCTest
 @testable import ReplicatingTypes
 
-final class ReplicatingArrayTests: XCTestCase {
+final class ReplicatingRegisterTests: XCTestCase {
     
     var a: ReplicatingRegister<Int>!
     var b: ReplicatingRegister<Int>!

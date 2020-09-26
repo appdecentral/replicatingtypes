@@ -207,17 +207,4 @@ final class ReplicatingDictionaryTests: XCTestCase {
         XCTAssertEqual(d.dictionary, a.dictionary)
     }
 
-    static var allTests = [
-        ("testInitialCreation", testInitialCreation),
-        ("testInserting", testInserting),
-        ("testReplacing", testReplacing),
-        ("testRemoving", testRemoving),
-        ("testInterleavedInsertAndRemove", testInterleavedInsertAndRemove),
-        ("testCommutivity", testCommutivity),
-        ("testIdempotency", testIdempotency),
-        ("testAssociativity", testAssociativity),
-        ("testMultipleMerges", testMultipleMerges),
-        ("testMergeOfInitiallyUnrelated", testMergeOfInitiallyUnrelated),
-        ("testNonAtomicMergingOfReplicatingValues", testNonAtomicMergingOfReplicatingValues),
-    ]
 }
