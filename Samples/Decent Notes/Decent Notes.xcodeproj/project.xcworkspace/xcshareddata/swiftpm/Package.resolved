@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Rill",
+        "repositoryURL": "git@github.com:drewmccormack/rill.git",
+        "state": {
+          "branch": "master",
+          "revision": "b968b40084fb333fa1147c88cd11efdb2fcd296b",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
