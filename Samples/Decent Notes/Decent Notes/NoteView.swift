@@ -30,7 +30,7 @@ struct NoteView: View {
                 PriorityButton(labelPriority: .normal, notePriority: $note.priority.value)
                 PriorityButton(labelPriority: .low, notePriority: $note.priority.value)
             }
-            ReplicatingTextView(text: $note.text)
+            ReplicatingCharactersView(replicatingCharacters: $note.text)
             RadioButtonList(
                 allLabels: Note.Tag.allCases.map({ $0.rawValue }),
                 selectedLabels: $note.tagStringSet
@@ -38,7 +38,7 @@ struct NoteView: View {
             .padding(.top, 5.0)
             .padding(.bottom, 15.0)
             Text("Created on \(formattedCreationDate)")
-                .font(.subheadline)
+                .font(.caption)
                 .foregroundColor(.secondary)
         }
         .padding()
