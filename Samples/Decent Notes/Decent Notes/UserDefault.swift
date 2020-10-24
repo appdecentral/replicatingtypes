@@ -1,5 +1,5 @@
 //
-//  General.swift
+//  Utility.swift
 //  Decent Notes
 //
 //  Created by Drew McCormack on 22/05/2020.

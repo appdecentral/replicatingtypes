@@ -21,7 +21,7 @@ struct NoteListView: View {
                     HStack {
                         NoteIconView(priority: note.priority.value)
                         VStack(alignment: .leading) {
-                            Text(note.title.value)
+                            Text(note.displayedTitle)
                                 .font(.headline)
                             Text(note.tagsString)
                                 .font(.caption)
@@ -35,7 +35,7 @@ struct NoteListView: View {
                 indices.forEach { self.dataStore.deleteNote(at: $0) }
             }
             .onMove { sources, destination in
-                self.dataStore.noteBook.moveNote(from: sources.first!, to: destination)
+                dataStore.noteBook.moveNote(from: sources.first!, to: destination)
             }
         }
     }

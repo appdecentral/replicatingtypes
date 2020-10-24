@@ -20,11 +20,15 @@ struct Note: Identifiable, Replicable, Codable, Equatable {
     }
     
     var id: UUID = .init()
-    var title: ReplicatingRegister<String> = .init("A Decent Note")
+    var title: ReplicatingRegister<String> = .init("")
     var text: ReplicatingArray<Character> = .init()
     var tags: ReplicatingSet<Tag> = .init()
     var priority: ReplicatingRegister<Priority> = .init(.normal)
     var creationDate: Date = .init()
+    
+    var displayedTitle: String {
+        title.value.isEmpty ? "Untitled" : title.value
+    }
     
     var tagsString: String {
         tags.values.map{ $0.rawValue }.sorted().joined(separator: ", ")

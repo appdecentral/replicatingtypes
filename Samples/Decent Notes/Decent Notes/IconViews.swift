@@ -23,7 +23,7 @@ struct NoteIconView: View {
                 .foregroundColor(.white)
                 .font(.system(size: 20, weight: .light))
                 .offset(x: -10.0, y: -15.0)
-            PriorityBadgeView(priority: priority)
+            PriorityBadgeView(priority: priority, isSelected: true)
                 .offset(x: -10.0, y: -15.0)
         }
         .foregroundColor(.purple)
@@ -34,6 +34,9 @@ struct NoteIconView: View {
 struct PriorityBadgeView: View {
     var priority: Note.Priority
     var isSelected: Bool = false
+    var color: Color {
+        isSelected ? .yellow : Color.yellow.opacity(0.5)
+    }
         
     var priorityImage: some View {
         switch priority {
@@ -47,16 +50,11 @@ struct PriorityBadgeView: View {
     }
     
     var body: some View {
-        ZStack {
-            Image(systemName: "square.fill")
-                .foregroundColor(Color(UIColor.systemBackground))
-                .font(.system(size: 20, weight: .light))
-            self.priorityImage
-                .foregroundColor(.yellow)
-                .font(.system(size: 20, weight: .light))
-        }
-        .offset(x: 0.0, y: self.isSelected ? -2.0 : 0.0)
-        .transformEffect(self.isSelected ? .init(scaleX: 1.1, y: 1.1) : .identity)
+        self.priorityImage
+            .foregroundColor(color)
+            .font(.system(size: 20, weight: .light))
+            .offset(x: 0.0, y: self.isSelected ? -2.0 : 0.0)
+            .transformEffect(self.isSelected ? .init(scaleX: 1.1, y: 1.1) : .identity)
     }
     
 }
