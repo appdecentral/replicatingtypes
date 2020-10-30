@@ -21,16 +21,16 @@ struct NoteView: View {
     var body: some View {
         Group {
             HStack {
-                TextField("Title", text: $note.title.value)
+                TextField("Tap to add title", text: $note.title.value)
                     .font(Font.headline)
                     .multilineTextAlignment(.leading)
                     .foregroundColor(.purple)
                 Spacer()
-                PriorityButton(labelPriority: .high, notePriority: self.$note.priority.value)
-                PriorityButton(labelPriority: .normal, notePriority: self.$note.priority.value)
-                PriorityButton(labelPriority: .low, notePriority: self.$note.priority.value)
+                PriorityButton(labelPriority: .high, notePriority: $note.priority.value)
+                PriorityButton(labelPriority: .normal, notePriority: $note.priority.value)
+                PriorityButton(labelPriority: .low, notePriority: $note.priority.value)
             }
-            ReplicatingTextView(text: $note.text)
+            ReplicatingCharactersView(replicatingCharacters: $note.text)
             RadioButtonList(
                 allLabels: Note.Tag.allCases.map({ $0.rawValue }),
                 selectedLabels: $note.tagStringSet
@@ -38,10 +38,12 @@ struct NoteView: View {
             .padding(.top, 5.0)
             .padding(.bottom, 15.0)
             Text("Created on \(formattedCreationDate)")
-                .font(.subheadline)
+                .font(.caption)
                 .foregroundColor(.secondary)
         }
         .padding()
+        .navigationTitle("A Decent Note")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
