@@ -73,8 +73,28 @@ struct NoteBook: Replicable, Codable, Equatable {
     
     func merged(with other: NoteBook) -> NoteBook {
         var new = self
+        
         new.notesByIdentifier = notesByIdentifier.merged(with: other.notesByIdentifier)
-        new.orderedNoteIdentifiers = orderedNoteIdentifiers.merged(with: other.orderedNoteIdentifiers)
+        
+        // Make sure there are no duplicates in the note identifiers.
+        // Also confirm that a note exists for each identifier.
+        // Begin by gathering the indices of the duplicates or invalid ids.
+        let orderedIds = orderedNoteIdentifiers.merged(with: other.orderedNoteIdentifiers)
+        var encounteredIds = Set<Note.ID>()
+        var indicesForRemoval: [Int] = []
+        for (i, id) in orderedIds.enumerated() {
+            if !encounteredIds.insert(id).inserted || new.notesByIdentifier[id] == nil {
+                indicesForRemoval.append(i)
+            }
+        }
+        
+        // Remove the non-unique entries in reverse order, so indices are valid
+        var uniqueIds = orderedIds
+        for i in indicesForRemoval.reversed() {
+            uniqueIds.remove(at: i)
+        }
+        new.orderedNoteIdentifiers = uniqueIds
+        
         return new
     }
 }
