@@ -13,3 +13,4 @@ This repo contains the Swift code introduced in the tutorial series on CRDTs at 
 4. [Time for Tombstones](https://appdecentral.com/2020/08/20/time-for-tombstones/). Introduces a set type that can be added to, and removed from. Addresses how you can handle time robustly, as well as introduce tombstones to handle deletion.
 5. [Replicants All the Way Down](https://appdecentral.com/2020/09/06/replicants-all-the-way-down/). Introduces a replicating dictionary type which recursively merges its values.
 6. [Maintaining Order in Replicating Types](https://appdecentral.com/2020/10/10/maintaining-order-in-replicating-types/). Introduces a replicating array type suitable for use with text.
+7. [Developing a Distributed Data App with SwiftUI and CRDTs](https://appdecentral.com/2020/11/03/developing-a-distributed-data-app-with-swiftui-and-crdts/). Brings together all of the replicating types from the series into a distributed data, SwiftUI app that syncs via CloudKit.
